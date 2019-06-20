@@ -85,7 +85,7 @@ class WechatAuth
             return $next($request);
         }catch (\Exception $exception){
             DB::rollBack();
-            return response()->json(['code'=>400,'data'=>$exception->getMessage().$exception->getLine()]);
+            return response()->json(['code'=>400,'data'=>$exception->getMessage().$exception->getLine().$exception->getFile()]);
         }
 
     }
