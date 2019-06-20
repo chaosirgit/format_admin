@@ -33,7 +33,7 @@ class UserController extends Controller
                 $json_data = json_encode($post_data);
                 $res_data = $this->request('POST',$api,['json'=>$json_data]);
                 if ($res_data['status'] == 'success'){
-                    if ($res_data['result']['account_data']['emailNotActivated'] == true){
+                    if (isset($res_data['result']['account_data']['emailNotActivated'])){
                         return $this->error(['radar_email'=>$user->radar_email,'msg'=>'需要激活','token'=>$token],4002);
                     }else{
                         if(isset($res_data['result']['account_data']['Account']) && $res_data['result']['need_unlock'] == true){
