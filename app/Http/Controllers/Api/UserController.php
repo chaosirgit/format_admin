@@ -15,6 +15,10 @@ class UserController extends Controller
         $user = Users::find($user_id);
         if (!empty($user)){
             $token = Redis::connection('token')->get($user_id);
+            if (empty($token)){
+                Redis::connection('token')->set($user->id,md5($user->uid.time()));
+                Redis::connection('token')->set(md5($user->uid.time()),$user->id);
+            }
             if (empty($user->radar_username)){
                 return $this->error(['msg'=>'请注册雷达币账户','token'=>$token],4001);
             }else{

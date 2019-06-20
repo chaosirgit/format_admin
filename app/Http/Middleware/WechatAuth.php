@@ -51,8 +51,7 @@ class WechatAuth
                         $user->save();
                         DB::commit();
                     }
-                    Redis::connection('token')->set($user->id,md5($user->uid.time()));
-                    Redis::connection('token')->set(md5($user->uid.time()),$user->id);
+
                     $user_id = $user->id;
                 }
             }
