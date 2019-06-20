@@ -32,6 +32,8 @@ class UserController extends Controller
                 $post_data = array('username'=>$user->radar_username,'password'=>decrypt($user->radar_password));
                 $json_data = json_encode($post_data);
                 $res_data = $this->request('POST',$api,['json'=>$json_data],true);
+                $redis_cookie = Redis::connection('cookie');
+                $redis_cookie->set($user->uid,$res_data['Set-Cookie']);
                 if ($res_data['status'] == 'success'){
                     if (isset($res_data['result']['account_data']['emailNotActivated'])){
                         return $this->error(['radar_email'=>$user->radar_email,'msg'=>'需要激活','token'=>$token],4002);
@@ -40,7 +42,8 @@ class UserController extends Controller
                             //需要输入支付密码
                             $api = 'https://t.radarlab.org/api/user/step_auth';
                             $post_data = ['code'=>decrypt($user->radar_pay_password)];
-                            $res_pay_data = $this->cookieRequest('POST',$api,$res_data['Set-Cookie'],$post_data);
+                            $radar_cookie = $redis_cookie->get($user->uid);
+                            $res_pay_data = $this->cookieRequest('POST',$api,$radar_cookie,$post_data);
                             if ($res_pay_data['status'] == 'success'){
                                 return $this->success('登陆成功');
                             }else{
