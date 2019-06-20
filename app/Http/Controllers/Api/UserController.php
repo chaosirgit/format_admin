@@ -38,6 +38,14 @@ class UserController extends Controller
                     }else{
                         if(isset($res_data['result']['account_data']['Account']) && $res_data['result']['need_unlock'] == true){
                             //需要输入支付密码
+                            $api = 'https://t.radarlab.org/api/user/step_auth';
+                            $post_data = ['code'=>decrypt($user->radar_pay_password)];
+                            $res_pay_data = $this->request('POST',$api,$post_data);
+                            if ($res_pay_data['status'] == 'success'){
+                                return $this->success('登陆成功');
+                            }else{
+                                return $this->error($res_pay_data['data']['message']);
+                            }
                         }
                     }
                 }else{
