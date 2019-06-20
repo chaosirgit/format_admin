@@ -33,9 +33,15 @@ class UserController extends Controller
                 $json_data = json_encode($post_data);
                 $res_data = $this->request('POST',$api,['json'=>$json_data]);
                 if ($res_data['status'] == 'success'){
-                    if ($res_data['result']['need_unlock'] == true){
+                    if ($res_data['result']['account_data']['emailNotActivated'] == true){
                         return $this->error(['radar_email'=>$user->radar_email,'msg'=>'需要激活','token'=>$token],4002);
+                    }else{
+                        if(isset($res_data['result']['account_data']['Account']) && $res_data['result']['need_unlock'] == true){
+                            //需要输入支付密码
+                        }
                     }
+                }else{
+                    return $this->error($res_data['data']['message']);
                 }
                 return $this->success($token);
             }
