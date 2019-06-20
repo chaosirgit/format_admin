@@ -28,12 +28,30 @@ class WechatAuth
 
 
         try{
-            if ($request->has('code')){
-                $code = $request->get('code');
-                $data = $app->auth->session($code);
-                var_dump($app->user->get($data['openid']));
-                die;
+            if (empty(session('user_id',null))){
+                if ($request->has('code')){
+                    $code = $request->get('code');
+                    $data = $app->auth->session($code);
+                    if (empty($data)){
+                        return response()->json(['code'=>400,'data'=>'获取openid失败']);
+                    }
+                    DB::beginTransaction();
+                    $user = Users::getUserByOpenId($data['openid']);
+
+                    if (empty($user)) {
+                        $user              = new Users();
+                        $user->uid         = UUID::generate()->string;
+                        $user->open_id     = $data['openid'];
+                        $user->nickname    = $request->get('nickname', '');
+                        $user->avatar      = $request->get('avatar', '');
+                        $user->create_time = time();
+                        $user->save();
+                        DB::commit();
+                    }
+                    session(['user_id'=>$user->id]);
+                }
             }
+
             return $next($request);
         }catch (\Exception $exception){
             DB::rollBack();
