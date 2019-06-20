@@ -28,6 +28,15 @@ class UserController extends Controller
             if (empty($user->radar_username)){
                 return $this->error(['msg'=>'请注册雷达币账户','token'=>$token],4001);
             }else{
+                $api = 'https://t.radarlab.org/api/user/login';
+                $post_data = array('username'=>$user->radar_username,'password'=>decrypt($user->radar_password));
+                $json_data = json_encode($post_data);
+                $res_data = $this->request('POST',$api,['json'=>$json_data]);
+                if ($res_data['status'] == 'success'){
+                    if ($res_data['result']['need_unlock'] == true){
+                        return $this->error(['radar_email'=>$user->radar_email,'msg'=>'需要激活'],4002);
+                    }
+                }
                 return $this->success($token);
             }
         }
@@ -68,6 +77,7 @@ class UserController extends Controller
                 $user = Users::find(Users::getUserId());
                 $user->radar_username = $res_data['result']['account_data']['nick'];
                 $user->radar_password = encrypt($password);
+                $user->radar_pay_password = encrypt($pay_password);
                 $user->radar_email = $email;
                 $user->radar_validated = $res_data['result']['validated'] ? 1 : 0;
                 $user->save();
