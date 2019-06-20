@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.5.45 on 2019-06-18 13:22:41.
+ * Generated for Laravel 5.5.45 on 2019-06-20 10:12:02.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -3612,108 +3612,6 @@ namespace Illuminate\Support\Facades {
         {
                         /** @var \Illuminate\Cookie\CookieJar $instance */
                         return $instance->getQueuedCookies();
-        }
-         
-    }
-
-    /**
-     * 
-     *
-     * @see \Illuminate\Encryption\Encrypter
-     */ 
-    class Crypt {
-        
-        /**
-         * Determine if the given key and cipher combination is valid.
-         *
-         * @param string $key
-         * @param string $cipher
-         * @return bool 
-         * @static 
-         */ 
-        public static function supported($key, $cipher)
-        {
-                        return \Illuminate\Encryption\Encrypter::supported($key, $cipher);
-        }
-        
-        /**
-         * Create a new encryption key for the given cipher.
-         *
-         * @param string $cipher
-         * @return string 
-         * @static 
-         */ 
-        public static function generateKey($cipher)
-        {
-                        return \Illuminate\Encryption\Encrypter::generateKey($cipher);
-        }
-        
-        /**
-         * Encrypt the given value.
-         *
-         * @param mixed $value
-         * @param bool $serialize
-         * @return string 
-         * @throws \Illuminate\Contracts\Encryption\EncryptException
-         * @static 
-         */ 
-        public static function encrypt($value, $serialize = true)
-        {
-                        /** @var \Illuminate\Encryption\Encrypter $instance */
-                        return $instance->encrypt($value, $serialize);
-        }
-        
-        /**
-         * Encrypt a string without serialization.
-         *
-         * @param string $value
-         * @return string 
-         * @static 
-         */ 
-        public static function encryptString($value)
-        {
-                        /** @var \Illuminate\Encryption\Encrypter $instance */
-                        return $instance->encryptString($value);
-        }
-        
-        /**
-         * Decrypt the given value.
-         *
-         * @param mixed $payload
-         * @param bool $unserialize
-         * @return string 
-         * @throws \Illuminate\Contracts\Encryption\DecryptException
-         * @static 
-         */ 
-        public static function decrypt($payload, $unserialize = true)
-        {
-                        /** @var \Illuminate\Encryption\Encrypter $instance */
-                        return $instance->decrypt($payload, $unserialize);
-        }
-        
-        /**
-         * Decrypt the given string without unserialization.
-         *
-         * @param string $payload
-         * @return string 
-         * @static 
-         */ 
-        public static function decryptString($payload)
-        {
-                        /** @var \Illuminate\Encryption\Encrypter $instance */
-                        return $instance->decryptString($payload);
-        }
-        
-        /**
-         * Get the encryption key.
-         *
-         * @return string 
-         * @static 
-         */ 
-        public static function getKey()
-        {
-                        /** @var \Illuminate\Encryption\Encrypter $instance */
-                        return $instance->getKey();
         }
          
     }
@@ -7749,6 +7647,55 @@ namespace Illuminate\Support\Facades {
         public static function hasMacro($name)
         {
                         return \Illuminate\Routing\Redirector::hasMacro($name);
+        }
+         
+    }
+
+    /**
+     * 
+     *
+     * @see \Illuminate\Redis\RedisManager
+     * @see \Illuminate\Contracts\Redis\Factory
+     */ 
+    class Redis {
+        
+        /**
+         * Get a Redis connection by name.
+         *
+         * @param string|null $name
+         * @return \Illuminate\Redis\Connections\Connection 
+         * @static 
+         */ 
+        public static function connection($name = null)
+        {
+                        /** @var \Illuminate\Redis\RedisManager $instance */
+                        return $instance->connection($name);
+        }
+        
+        /**
+         * Resolve the given connection by name.
+         *
+         * @param string|null $name
+         * @return \Illuminate\Redis\Connections\Connection 
+         * @throws \InvalidArgumentException
+         * @static 
+         */ 
+        public static function resolve($name = null)
+        {
+                        /** @var \Illuminate\Redis\RedisManager $instance */
+                        return $instance->resolve($name);
+        }
+        
+        /**
+         * Return all of the created connections.
+         *
+         * @return array 
+         * @static 
+         */ 
+        public static function connections()
+        {
+                        /** @var \Illuminate\Redis\RedisManager $instance */
+                        return $instance->connections();
         }
          
     }
@@ -13771,6 +13718,306 @@ namespace Illuminate\Support\Facades {
  
 }
 
+namespace Webpatser\Uuid { 
+
+    /**
+     * Class Uuid
+     *
+     * @package Webpatser\Uuid
+     * @property string $bytes
+     * @property string $hex
+     * @property string $node
+     * @property string $string
+     * @property string $time
+     * @property string $urn
+     * @property string $variant
+     * @property string $version
+     */ 
+    class Uuid {
+         
+    }
+ 
+}
+
+namespace Overtrue\LaravelWeChat { 
+
+    /**
+     * Class Facade.
+     *
+     * @author overtrue <i@overtrue.me>
+     */ 
+    class Facade {
+        
+        /**
+         * 
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getId()
+        {
+            //Method inherited from \EasyWeChat\Kernel\ServiceContainer            
+                        /** @var \EasyWeChat\OfficialAccount\Application $instance */
+                        return $instance->getId();
+        }
+        
+        /**
+         * 
+         *
+         * @return array 
+         * @static 
+         */ 
+        public static function getConfig()
+        {
+            //Method inherited from \EasyWeChat\Kernel\ServiceContainer            
+                        /** @var \EasyWeChat\OfficialAccount\Application $instance */
+                        return $instance->getConfig();
+        }
+        
+        /**
+         * Return all providers.
+         *
+         * @return array 
+         * @static 
+         */ 
+        public static function getProviders()
+        {
+            //Method inherited from \EasyWeChat\Kernel\ServiceContainer            
+                        /** @var \EasyWeChat\OfficialAccount\Application $instance */
+                        return $instance->getProviders();
+        }
+        
+        /**
+         * 
+         *
+         * @param string $id
+         * @param mixed $value
+         * @static 
+         */ 
+        public static function rebind($id, $value)
+        {
+            //Method inherited from \EasyWeChat\Kernel\ServiceContainer            
+                        /** @var \EasyWeChat\OfficialAccount\Application $instance */
+                        return $instance->rebind($id, $value);
+        }
+        
+        /**
+         * 
+         *
+         * @param array $providers
+         * @static 
+         */ 
+        public static function registerProviders($providers)
+        {
+            //Method inherited from \EasyWeChat\Kernel\ServiceContainer            
+                        /** @var \EasyWeChat\OfficialAccount\Application $instance */
+                        return $instance->registerProviders($providers);
+        }
+        
+        /**
+         * Sets a parameter or an object.
+         * 
+         * Objects must be defined as Closures.
+         * 
+         * Allowing any PHP callable leads to difficult to debug problems
+         * as function names (strings) are callable (creating a function with
+         * the same name as an existing parameter would break your container).
+         *
+         * @param string $id The unique identifier for the parameter or object
+         * @param mixed $value The value of the parameter or a closure to define an object
+         * @throws FrozenServiceException Prevent override of a frozen service
+         * @static 
+         */ 
+        public static function offsetSet($id, $value)
+        {
+            //Method inherited from \Pimple\Container            
+                        /** @var \EasyWeChat\OfficialAccount\Application $instance */
+                        return $instance->offsetSet($id, $value);
+        }
+        
+        /**
+         * Gets a parameter or an object.
+         *
+         * @param string $id The unique identifier for the parameter or object
+         * @return mixed The value of the parameter or an object
+         * @throws UnknownIdentifierException If the identifier is not defined
+         * @static 
+         */ 
+        public static function offsetGet($id)
+        {
+            //Method inherited from \Pimple\Container            
+                        /** @var \EasyWeChat\OfficialAccount\Application $instance */
+                        return $instance->offsetGet($id);
+        }
+        
+        /**
+         * Checks if a parameter or an object is set.
+         *
+         * @param string $id The unique identifier for the parameter or object
+         * @return bool 
+         * @static 
+         */ 
+        public static function offsetExists($id)
+        {
+            //Method inherited from \Pimple\Container            
+                        /** @var \EasyWeChat\OfficialAccount\Application $instance */
+                        return $instance->offsetExists($id);
+        }
+        
+        /**
+         * Unsets a parameter or an object.
+         *
+         * @param string $id The unique identifier for the parameter or object
+         * @static 
+         */ 
+        public static function offsetUnset($id)
+        {
+            //Method inherited from \Pimple\Container            
+                        /** @var \EasyWeChat\OfficialAccount\Application $instance */
+                        return $instance->offsetUnset($id);
+        }
+        
+        /**
+         * Marks a callable as being a factory service.
+         *
+         * @param callable $callable A service definition to be used as a factory
+         * @return callable The passed callable
+         * @throws ExpectedInvokableException Service definition has to be a closure or an invokable object
+         * @static 
+         */ 
+        public static function factory($callable)
+        {
+            //Method inherited from \Pimple\Container            
+                        /** @var \EasyWeChat\OfficialAccount\Application $instance */
+                        return $instance->factory($callable);
+        }
+        
+        /**
+         * Protects a callable from being interpreted as a service.
+         * 
+         * This is useful when you want to store a callable as a parameter.
+         *
+         * @param callable $callable A callable to protect from being evaluated
+         * @return callable The passed callable
+         * @throws ExpectedInvokableException Service definition has to be a closure or an invokable object
+         * @static 
+         */ 
+        public static function protect($callable)
+        {
+            //Method inherited from \Pimple\Container            
+                        /** @var \EasyWeChat\OfficialAccount\Application $instance */
+                        return $instance->protect($callable);
+        }
+        
+        /**
+         * Gets a parameter or the closure defining an object.
+         *
+         * @param string $id The unique identifier for the parameter or object
+         * @return mixed The value of the parameter or the closure defining an object
+         * @throws UnknownIdentifierException If the identifier is not defined
+         * @static 
+         */ 
+        public static function raw($id)
+        {
+            //Method inherited from \Pimple\Container            
+                        /** @var \EasyWeChat\OfficialAccount\Application $instance */
+                        return $instance->raw($id);
+        }
+        
+        /**
+         * Extends an object definition.
+         * 
+         * Useful when you want to extend an existing object definition,
+         * without necessarily loading that object.
+         *
+         * @param string $id The unique identifier for the object
+         * @param callable $callable A service definition to extend the original
+         * @return callable The wrapped callable
+         * @throws UnknownIdentifierException        If the identifier is not defined
+         * @throws FrozenServiceException            If the service is frozen
+         * @throws InvalidServiceIdentifierException If the identifier belongs to a parameter
+         * @throws ExpectedInvokableException        If the extension callable is not a closure or an invokable object
+         * @static 
+         */ 
+        public static function extend($id, $callable)
+        {
+            //Method inherited from \Pimple\Container            
+                        /** @var \EasyWeChat\OfficialAccount\Application $instance */
+                        return $instance->extend($id, $callable);
+        }
+        
+        /**
+         * Returns all defined value names.
+         *
+         * @return array An array of value names
+         * @static 
+         */ 
+        public static function keys()
+        {
+            //Method inherited from \Pimple\Container            
+                        /** @var \EasyWeChat\OfficialAccount\Application $instance */
+                        return $instance->keys();
+        }
+        
+        /**
+         * Registers a service provider.
+         *
+         * @param \Pimple\ServiceProviderInterface $provider A ServiceProviderInterface instance
+         * @param array $values An array of values that customizes the provider
+         * @return static 
+         * @static 
+         */ 
+        public static function register($provider, $values = array())
+        {
+            //Method inherited from \Pimple\Container            
+                        /** @var \EasyWeChat\OfficialAccount\Application $instance */
+                        return $instance->register($provider, $values);
+        }
+        
+        /**
+         * 
+         *
+         * @return bool 
+         * @static 
+         */ 
+        public static function shouldDelegate($id)
+        {
+            //Method inherited from \EasyWeChat\Kernel\ServiceContainer            
+                        /** @var \EasyWeChat\OfficialAccount\Application $instance */
+                        return $instance->shouldDelegate($id);
+        }
+        
+        /**
+         * 
+         *
+         * @return \EasyWeChat\OfficialAccount\Application 
+         * @static 
+         */ 
+        public static function shouldntDelegate()
+        {
+            //Method inherited from \EasyWeChat\Kernel\ServiceContainer            
+                        /** @var \EasyWeChat\OfficialAccount\Application $instance */
+                        return $instance->shouldntDelegate();
+        }
+        
+        /**
+         * 
+         *
+         * @param string $id
+         * @return \EasyWeChatComposer\Delegation 
+         * @static 
+         */ 
+        public static function delegateTo($id)
+        {
+            //Method inherited from \EasyWeChat\Kernel\ServiceContainer            
+                        /** @var \EasyWeChat\OfficialAccount\Application $instance */
+                        return $instance->delegateTo($id);
+        }
+         
+    }
+ 
+}
+
 
 namespace  { 
 
@@ -13791,8 +14038,6 @@ namespace  {
     class Config extends \Illuminate\Support\Facades\Config {}
 
     class Cookie extends \Illuminate\Support\Facades\Cookie {}
-
-    class Crypt extends \Illuminate\Support\Facades\Crypt {}
 
     class DB extends \Illuminate\Support\Facades\DB {}
 
@@ -16050,6 +16295,8 @@ namespace  {
 
     class Redirect extends \Illuminate\Support\Facades\Redirect {}
 
+    class Redis extends \Illuminate\Support\Facades\Redis {}
+
     class Request extends \Illuminate\Support\Facades\Request {}
 
     class Response extends \Illuminate\Support\Facades\Response {}
@@ -16067,6 +16314,10 @@ namespace  {
     class Validator extends \Illuminate\Support\Facades\Validator {}
 
     class View extends \Illuminate\Support\Facades\View {}
+
+    class Uuid extends \Webpatser\Uuid\Uuid {}
+
+    class EasyWeChat extends \Overtrue\LaravelWeChat\Facade {}
  
 }
 

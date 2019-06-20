@@ -5,7 +5,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2019-06-18 13:23:16.
+    * Generated on 2019-06-20 10:12:16.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -18,7 +18,7 @@ namespace PHPSTORM_META {
         'Illuminate\Console\Scheduling\ScheduleFinishCommand' => \Illuminate\Console\Scheduling\ScheduleFinishCommand::class,
         'Illuminate\Console\Scheduling\ScheduleRunCommand' => \Illuminate\Console\Scheduling\ScheduleRunCommand::class,
         'Illuminate\Contracts\Auth\Access\Gate' => \Illuminate\Auth\Access\Gate::class,
-        'Illuminate\Contracts\Broadcasting\Broadcaster' => \Illuminate\Broadcasting\Broadcasters\LogBroadcaster::class,
+        'Illuminate\Contracts\Broadcasting\Broadcaster' => \Illuminate\Broadcasting\Broadcasters\NullBroadcaster::class,
         'Illuminate\Contracts\Console\Kernel' => \App\Console\Kernel::class,
         'Illuminate\Contracts\Debug\ExceptionHandler' => \App\Exceptions\Handler::class,
         'Illuminate\Contracts\Http\Kernel' => \App\Http\Kernel::class,
@@ -108,7 +108,6 @@ namespace PHPSTORM_META {
         'db' => \Illuminate\Database\DatabaseManager::class,
         'db.connection' => \Illuminate\Database\MySqlConnection::class,
         'db.factory' => \Illuminate\Database\Connectors\ConnectionFactory::class,
-        'encrypter' => \Illuminate\Encryption\Encrypter::class,
         'events' => \Illuminate\Events\Dispatcher::class,
         'files' => \Illuminate\Filesystem\Filesystem::class,
         'filesystem' => \Illuminate\Filesystem\FilesystemManager::class,
@@ -127,6 +126,7 @@ namespace PHPSTORM_META {
         'queue.worker' => \Illuminate\Queue\Worker::class,
         'redirect' => \Illuminate\Routing\Redirector::class,
         'redis' => \Illuminate\Redis\RedisManager::class,
+        'redis.connection' => \Illuminate\Redis\Connections\PredisConnection::class,
         'router' => \Illuminate\Routing\Router::class,
         'session' => \Illuminate\Session\SessionManager::class,
         'session.store' => \Illuminate\Session\Store::class,
@@ -139,6 +139,8 @@ namespace PHPSTORM_META {
         'view' => \Illuminate\View\Factory::class,
         'view.engine.resolver' => \Illuminate\View\Engines\EngineResolver::class,
         'view.finder' => \Illuminate\View\FileViewFinder::class,
+        'wechat.mini_program.default' => \EasyWeChat\MiniProgram\Application::class,
+        'wechat.official_account.default' => \EasyWeChat\OfficialAccount\Application::class,
     ]));
     override(\Illuminate\Contracts\Container\Container::make(0), map([
         '' => '@',
@@ -148,7 +150,7 @@ namespace PHPSTORM_META {
         'Illuminate\Console\Scheduling\ScheduleFinishCommand' => \Illuminate\Console\Scheduling\ScheduleFinishCommand::class,
         'Illuminate\Console\Scheduling\ScheduleRunCommand' => \Illuminate\Console\Scheduling\ScheduleRunCommand::class,
         'Illuminate\Contracts\Auth\Access\Gate' => \Illuminate\Auth\Access\Gate::class,
-        'Illuminate\Contracts\Broadcasting\Broadcaster' => \Illuminate\Broadcasting\Broadcasters\LogBroadcaster::class,
+        'Illuminate\Contracts\Broadcasting\Broadcaster' => \Illuminate\Broadcasting\Broadcasters\NullBroadcaster::class,
         'Illuminate\Contracts\Console\Kernel' => \App\Console\Kernel::class,
         'Illuminate\Contracts\Debug\ExceptionHandler' => \App\Exceptions\Handler::class,
         'Illuminate\Contracts\Http\Kernel' => \App\Http\Kernel::class,
@@ -238,7 +240,6 @@ namespace PHPSTORM_META {
         'db' => \Illuminate\Database\DatabaseManager::class,
         'db.connection' => \Illuminate\Database\MySqlConnection::class,
         'db.factory' => \Illuminate\Database\Connectors\ConnectionFactory::class,
-        'encrypter' => \Illuminate\Encryption\Encrypter::class,
         'events' => \Illuminate\Events\Dispatcher::class,
         'files' => \Illuminate\Filesystem\Filesystem::class,
         'filesystem' => \Illuminate\Filesystem\FilesystemManager::class,
@@ -257,6 +258,7 @@ namespace PHPSTORM_META {
         'queue.worker' => \Illuminate\Queue\Worker::class,
         'redirect' => \Illuminate\Routing\Redirector::class,
         'redis' => \Illuminate\Redis\RedisManager::class,
+        'redis.connection' => \Illuminate\Redis\Connections\PredisConnection::class,
         'router' => \Illuminate\Routing\Router::class,
         'session' => \Illuminate\Session\SessionManager::class,
         'session.store' => \Illuminate\Session\Store::class,
@@ -269,6 +271,8 @@ namespace PHPSTORM_META {
         'view' => \Illuminate\View\Factory::class,
         'view.engine.resolver' => \Illuminate\View\Engines\EngineResolver::class,
         'view.finder' => \Illuminate\View\FileViewFinder::class,
+        'wechat.mini_program.default' => \EasyWeChat\MiniProgram\Application::class,
+        'wechat.official_account.default' => \EasyWeChat\OfficialAccount\Application::class,
     ]));
     override(\Illuminate\Contracts\Container\Container::makeWith(0), map([
         '' => '@',
@@ -278,7 +282,7 @@ namespace PHPSTORM_META {
         'Illuminate\Console\Scheduling\ScheduleFinishCommand' => \Illuminate\Console\Scheduling\ScheduleFinishCommand::class,
         'Illuminate\Console\Scheduling\ScheduleRunCommand' => \Illuminate\Console\Scheduling\ScheduleRunCommand::class,
         'Illuminate\Contracts\Auth\Access\Gate' => \Illuminate\Auth\Access\Gate::class,
-        'Illuminate\Contracts\Broadcasting\Broadcaster' => \Illuminate\Broadcasting\Broadcasters\LogBroadcaster::class,
+        'Illuminate\Contracts\Broadcasting\Broadcaster' => \Illuminate\Broadcasting\Broadcasters\NullBroadcaster::class,
         'Illuminate\Contracts\Console\Kernel' => \App\Console\Kernel::class,
         'Illuminate\Contracts\Debug\ExceptionHandler' => \App\Exceptions\Handler::class,
         'Illuminate\Contracts\Http\Kernel' => \App\Http\Kernel::class,
@@ -368,7 +372,6 @@ namespace PHPSTORM_META {
         'db' => \Illuminate\Database\DatabaseManager::class,
         'db.connection' => \Illuminate\Database\MySqlConnection::class,
         'db.factory' => \Illuminate\Database\Connectors\ConnectionFactory::class,
-        'encrypter' => \Illuminate\Encryption\Encrypter::class,
         'events' => \Illuminate\Events\Dispatcher::class,
         'files' => \Illuminate\Filesystem\Filesystem::class,
         'filesystem' => \Illuminate\Filesystem\FilesystemManager::class,
@@ -387,6 +390,7 @@ namespace PHPSTORM_META {
         'queue.worker' => \Illuminate\Queue\Worker::class,
         'redirect' => \Illuminate\Routing\Redirector::class,
         'redis' => \Illuminate\Redis\RedisManager::class,
+        'redis.connection' => \Illuminate\Redis\Connections\PredisConnection::class,
         'router' => \Illuminate\Routing\Router::class,
         'session' => \Illuminate\Session\SessionManager::class,
         'session.store' => \Illuminate\Session\Store::class,
@@ -399,6 +403,8 @@ namespace PHPSTORM_META {
         'view' => \Illuminate\View\Factory::class,
         'view.engine.resolver' => \Illuminate\View\Engines\EngineResolver::class,
         'view.finder' => \Illuminate\View\FileViewFinder::class,
+        'wechat.mini_program.default' => \EasyWeChat\MiniProgram\Application::class,
+        'wechat.official_account.default' => \EasyWeChat\OfficialAccount\Application::class,
     ]));
     override(\App::make(0), map([
         '' => '@',
@@ -408,7 +414,7 @@ namespace PHPSTORM_META {
         'Illuminate\Console\Scheduling\ScheduleFinishCommand' => \Illuminate\Console\Scheduling\ScheduleFinishCommand::class,
         'Illuminate\Console\Scheduling\ScheduleRunCommand' => \Illuminate\Console\Scheduling\ScheduleRunCommand::class,
         'Illuminate\Contracts\Auth\Access\Gate' => \Illuminate\Auth\Access\Gate::class,
-        'Illuminate\Contracts\Broadcasting\Broadcaster' => \Illuminate\Broadcasting\Broadcasters\LogBroadcaster::class,
+        'Illuminate\Contracts\Broadcasting\Broadcaster' => \Illuminate\Broadcasting\Broadcasters\NullBroadcaster::class,
         'Illuminate\Contracts\Console\Kernel' => \App\Console\Kernel::class,
         'Illuminate\Contracts\Debug\ExceptionHandler' => \App\Exceptions\Handler::class,
         'Illuminate\Contracts\Http\Kernel' => \App\Http\Kernel::class,
@@ -498,7 +504,6 @@ namespace PHPSTORM_META {
         'db' => \Illuminate\Database\DatabaseManager::class,
         'db.connection' => \Illuminate\Database\MySqlConnection::class,
         'db.factory' => \Illuminate\Database\Connectors\ConnectionFactory::class,
-        'encrypter' => \Illuminate\Encryption\Encrypter::class,
         'events' => \Illuminate\Events\Dispatcher::class,
         'files' => \Illuminate\Filesystem\Filesystem::class,
         'filesystem' => \Illuminate\Filesystem\FilesystemManager::class,
@@ -517,6 +522,7 @@ namespace PHPSTORM_META {
         'queue.worker' => \Illuminate\Queue\Worker::class,
         'redirect' => \Illuminate\Routing\Redirector::class,
         'redis' => \Illuminate\Redis\RedisManager::class,
+        'redis.connection' => \Illuminate\Redis\Connections\PredisConnection::class,
         'router' => \Illuminate\Routing\Router::class,
         'session' => \Illuminate\Session\SessionManager::class,
         'session.store' => \Illuminate\Session\Store::class,
@@ -529,6 +535,8 @@ namespace PHPSTORM_META {
         'view' => \Illuminate\View\Factory::class,
         'view.engine.resolver' => \Illuminate\View\Engines\EngineResolver::class,
         'view.finder' => \Illuminate\View\FileViewFinder::class,
+        'wechat.mini_program.default' => \EasyWeChat\MiniProgram\Application::class,
+        'wechat.official_account.default' => \EasyWeChat\OfficialAccount\Application::class,
     ]));
     override(\App::makeWith(0), map([
         '' => '@',
@@ -538,7 +546,7 @@ namespace PHPSTORM_META {
         'Illuminate\Console\Scheduling\ScheduleFinishCommand' => \Illuminate\Console\Scheduling\ScheduleFinishCommand::class,
         'Illuminate\Console\Scheduling\ScheduleRunCommand' => \Illuminate\Console\Scheduling\ScheduleRunCommand::class,
         'Illuminate\Contracts\Auth\Access\Gate' => \Illuminate\Auth\Access\Gate::class,
-        'Illuminate\Contracts\Broadcasting\Broadcaster' => \Illuminate\Broadcasting\Broadcasters\LogBroadcaster::class,
+        'Illuminate\Contracts\Broadcasting\Broadcaster' => \Illuminate\Broadcasting\Broadcasters\NullBroadcaster::class,
         'Illuminate\Contracts\Console\Kernel' => \App\Console\Kernel::class,
         'Illuminate\Contracts\Debug\ExceptionHandler' => \App\Exceptions\Handler::class,
         'Illuminate\Contracts\Http\Kernel' => \App\Http\Kernel::class,
@@ -628,7 +636,6 @@ namespace PHPSTORM_META {
         'db' => \Illuminate\Database\DatabaseManager::class,
         'db.connection' => \Illuminate\Database\MySqlConnection::class,
         'db.factory' => \Illuminate\Database\Connectors\ConnectionFactory::class,
-        'encrypter' => \Illuminate\Encryption\Encrypter::class,
         'events' => \Illuminate\Events\Dispatcher::class,
         'files' => \Illuminate\Filesystem\Filesystem::class,
         'filesystem' => \Illuminate\Filesystem\FilesystemManager::class,
@@ -647,6 +654,7 @@ namespace PHPSTORM_META {
         'queue.worker' => \Illuminate\Queue\Worker::class,
         'redirect' => \Illuminate\Routing\Redirector::class,
         'redis' => \Illuminate\Redis\RedisManager::class,
+        'redis.connection' => \Illuminate\Redis\Connections\PredisConnection::class,
         'router' => \Illuminate\Routing\Router::class,
         'session' => \Illuminate\Session\SessionManager::class,
         'session.store' => \Illuminate\Session\Store::class,
@@ -659,6 +667,8 @@ namespace PHPSTORM_META {
         'view' => \Illuminate\View\Factory::class,
         'view.engine.resolver' => \Illuminate\View\Engines\EngineResolver::class,
         'view.finder' => \Illuminate\View\FileViewFinder::class,
+        'wechat.mini_program.default' => \EasyWeChat\MiniProgram\Application::class,
+        'wechat.official_account.default' => \EasyWeChat\OfficialAccount\Application::class,
     ]));
     override(\app(0), map([
         '' => '@',
@@ -668,7 +678,7 @@ namespace PHPSTORM_META {
         'Illuminate\Console\Scheduling\ScheduleFinishCommand' => \Illuminate\Console\Scheduling\ScheduleFinishCommand::class,
         'Illuminate\Console\Scheduling\ScheduleRunCommand' => \Illuminate\Console\Scheduling\ScheduleRunCommand::class,
         'Illuminate\Contracts\Auth\Access\Gate' => \Illuminate\Auth\Access\Gate::class,
-        'Illuminate\Contracts\Broadcasting\Broadcaster' => \Illuminate\Broadcasting\Broadcasters\LogBroadcaster::class,
+        'Illuminate\Contracts\Broadcasting\Broadcaster' => \Illuminate\Broadcasting\Broadcasters\NullBroadcaster::class,
         'Illuminate\Contracts\Console\Kernel' => \App\Console\Kernel::class,
         'Illuminate\Contracts\Debug\ExceptionHandler' => \App\Exceptions\Handler::class,
         'Illuminate\Contracts\Http\Kernel' => \App\Http\Kernel::class,
@@ -758,7 +768,6 @@ namespace PHPSTORM_META {
         'db' => \Illuminate\Database\DatabaseManager::class,
         'db.connection' => \Illuminate\Database\MySqlConnection::class,
         'db.factory' => \Illuminate\Database\Connectors\ConnectionFactory::class,
-        'encrypter' => \Illuminate\Encryption\Encrypter::class,
         'events' => \Illuminate\Events\Dispatcher::class,
         'files' => \Illuminate\Filesystem\Filesystem::class,
         'filesystem' => \Illuminate\Filesystem\FilesystemManager::class,
@@ -777,6 +786,7 @@ namespace PHPSTORM_META {
         'queue.worker' => \Illuminate\Queue\Worker::class,
         'redirect' => \Illuminate\Routing\Redirector::class,
         'redis' => \Illuminate\Redis\RedisManager::class,
+        'redis.connection' => \Illuminate\Redis\Connections\PredisConnection::class,
         'router' => \Illuminate\Routing\Router::class,
         'session' => \Illuminate\Session\SessionManager::class,
         'session.store' => \Illuminate\Session\Store::class,
@@ -789,6 +799,8 @@ namespace PHPSTORM_META {
         'view' => \Illuminate\View\Factory::class,
         'view.engine.resolver' => \Illuminate\View\Engines\EngineResolver::class,
         'view.finder' => \Illuminate\View\FileViewFinder::class,
+        'wechat.mini_program.default' => \EasyWeChat\MiniProgram\Application::class,
+        'wechat.official_account.default' => \EasyWeChat\OfficialAccount\Application::class,
     ]));
     override(\resolve(0), map([
         '' => '@',
@@ -798,7 +810,7 @@ namespace PHPSTORM_META {
         'Illuminate\Console\Scheduling\ScheduleFinishCommand' => \Illuminate\Console\Scheduling\ScheduleFinishCommand::class,
         'Illuminate\Console\Scheduling\ScheduleRunCommand' => \Illuminate\Console\Scheduling\ScheduleRunCommand::class,
         'Illuminate\Contracts\Auth\Access\Gate' => \Illuminate\Auth\Access\Gate::class,
-        'Illuminate\Contracts\Broadcasting\Broadcaster' => \Illuminate\Broadcasting\Broadcasters\LogBroadcaster::class,
+        'Illuminate\Contracts\Broadcasting\Broadcaster' => \Illuminate\Broadcasting\Broadcasters\NullBroadcaster::class,
         'Illuminate\Contracts\Console\Kernel' => \App\Console\Kernel::class,
         'Illuminate\Contracts\Debug\ExceptionHandler' => \App\Exceptions\Handler::class,
         'Illuminate\Contracts\Http\Kernel' => \App\Http\Kernel::class,
@@ -888,7 +900,6 @@ namespace PHPSTORM_META {
         'db' => \Illuminate\Database\DatabaseManager::class,
         'db.connection' => \Illuminate\Database\MySqlConnection::class,
         'db.factory' => \Illuminate\Database\Connectors\ConnectionFactory::class,
-        'encrypter' => \Illuminate\Encryption\Encrypter::class,
         'events' => \Illuminate\Events\Dispatcher::class,
         'files' => \Illuminate\Filesystem\Filesystem::class,
         'filesystem' => \Illuminate\Filesystem\FilesystemManager::class,
@@ -907,6 +918,7 @@ namespace PHPSTORM_META {
         'queue.worker' => \Illuminate\Queue\Worker::class,
         'redirect' => \Illuminate\Routing\Redirector::class,
         'redis' => \Illuminate\Redis\RedisManager::class,
+        'redis.connection' => \Illuminate\Redis\Connections\PredisConnection::class,
         'router' => \Illuminate\Routing\Router::class,
         'session' => \Illuminate\Session\SessionManager::class,
         'session.store' => \Illuminate\Session\Store::class,
@@ -919,6 +931,8 @@ namespace PHPSTORM_META {
         'view' => \Illuminate\View\Factory::class,
         'view.engine.resolver' => \Illuminate\View\Engines\EngineResolver::class,
         'view.finder' => \Illuminate\View\FileViewFinder::class,
+        'wechat.mini_program.default' => \EasyWeChat\MiniProgram\Application::class,
+        'wechat.official_account.default' => \EasyWeChat\OfficialAccount\Application::class,
     ]));
 
     override(\Illuminate\Support\Arr::add(0), type(0));
