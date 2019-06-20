@@ -13,12 +13,17 @@ class UserController extends Controller
     public function login(Request $request){
         $user_id = $request->get('user_id',null);
         $user = Users::find($user_id);
-        if (empty($user->radar_username)){
-            return $this->error('请注册雷达币账户',4001);
-        }else{
+        if (!empty($user)){
             $token = Redis::connection('token')->get($user_id);
-            return $this->success($token);
+            if (empty($user->radar_username)){
+                return $this->error(['msg'=>'请注册雷达币账户','token'=>$token],4001);
+            }else{
+                return $this->success($token);
+            }
         }
+
+        return $this->error('无此账户');
+
     }
 
 
