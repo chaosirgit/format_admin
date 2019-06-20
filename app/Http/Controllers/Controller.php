@@ -43,10 +43,8 @@ class Controller extends BaseController
 
         $res_data    = json_decode($res_string, true);
         if ($cookie){
-            $cookie_string = $response->getHeader('Set-Cookie');
-            var_dump($cookie_string);
-            die;
-            $res_data['Set-Cookie'] = $cookie_string;
+            $cookie_arr = $response->getHeader('Set-Cookie');
+            $res_data['Set-Cookie'] = $cookie_arr[0];
         }
         return $res_data;
     }
