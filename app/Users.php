@@ -28,7 +28,7 @@ class Users extends Model
         if (empty($token)){
             return 0;
         }else{
-            return Redis::get($token);
+            return Redis::connection('token')->get($token);
         }
     }
 }
