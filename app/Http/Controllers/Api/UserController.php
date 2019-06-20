@@ -45,7 +45,7 @@ class UserController extends Controller
                                 $api = 'https://t.radarlab.org/api/user/step_auth';
                                 $post_data = ['code'=>decrypt($user->radar_pay_password)];
                                 $radar_cookie = $redis_cookie->get($user->uid);
-                                $res_pay_data = $this->cookieRequest('POST',$api,$radar_cookie,$post_data);
+                                $res_pay_data = $this->cookieRequest($user->uid,'POST',$api,$radar_cookie,$post_data);
                                 if ($res_pay_data['status'] == 'success'){
                                     return $this->success('登陆成功');
                                 }else{

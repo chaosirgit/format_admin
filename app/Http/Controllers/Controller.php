@@ -9,6 +9,7 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Support\Facades\Redis;
 
 class Controller extends BaseController
 {
@@ -49,7 +50,7 @@ class Controller extends BaseController
         return $res_data;
     }
 
-    public function cookieRequest($method,$api,$cookie_string,$data = array()){
+    public function cookieRequest($uuid,$method,$api,$cookie_string,$data = array()){
         $cookie_jar = new CookieJar();
         $cookie_jar->setCookie(SetCookie::fromString($cookie_string));
         $client = new Client(['cookies'=>$cookie_jar]);
@@ -61,6 +62,9 @@ class Controller extends BaseController
         $res_string  = $response->getBody()->getContents();
 
         $res_data    = json_decode($res_string, true);
+        $cookie_arr = $response->getHeader('Set-Cookie');
+        $res_data['Set-Cookie'] = $cookie_arr[0];
+        Redis::connection('cookie')->set($uuid,$res_data['Set-Cookie']);
         if ($res_data['status'] == 'failed'){
             if ($res_data['data']['error_code'] == 'NOT_LOGGEDIN'){
                 return $this->error('未登陆雷达币',999);
