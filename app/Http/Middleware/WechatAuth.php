@@ -30,11 +30,11 @@ class WechatAuth
         $sessionKey = \sprintf('user_id', $account);
         $config = config(\sprintf('wechat.mini_program.%s', $account), []);
         $officialAccount = app(\sprintf('wechat.mini_program.%s', $account));
-        $scopes = $scopes ?: Arr::get($config, 'oauth.scopes', ['snsapi_base']);
+//        $scopes = $scopes ?: Arr::get($config, 'oauth.scopes', ['snsapi_base']);
 
-        if (is_string($scopes)) {
-            $scopes = array_map('trim', explode(',', $scopes));
-        }
+//        if (is_string($scopes)) {
+//            $scopes = array_map('trim', explode(',', $scopes));
+//        }
 
         $session = session($sessionKey, []);
         try{
