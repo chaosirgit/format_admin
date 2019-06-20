@@ -44,12 +44,14 @@ class Controller extends BaseController
         $res_data    = json_decode($res_string, true);
         if ($cookie){
             $cookie_string = $response->getHeader('Set-Cookie');
+            var_dump($cookie_string);
+            die;
             $res_data['Set-Cookie'] = $cookie_string;
         }
         return $res_data;
     }
 
-    public function cookieRequest($method,$api,$data = array(),$cookie_string){
+    public function cookieRequest($method,$api,$cookie_string,$data = array()){
         $cookie_jar = new CookieJar();
         $cookie_jar->setCookie(SetCookie::fromString($cookie_string));
         $client = new Client(['cookies'=>$cookie_jar]);
