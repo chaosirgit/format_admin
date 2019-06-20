@@ -7,9 +7,9 @@ use App\Http\Controllers\Controller;
 
 class UserController extends Controller
 {
-    public function login(Request $request){
+    public function login(){
         $user_id = session('user_id');
-        return redirect($request->back_url);
         return $this->success($user_id);
+
     }
 }
