@@ -61,6 +61,11 @@ class Controller extends BaseController
         $res_string  = $response->getBody()->getContents();
 
         $res_data    = json_decode($res_string, true);
+        if ($res_data['status'] == 'failed'){
+            if ($res_data['data']['error_code'] == 'NOT_LOGGEDIN'){
+                return $this->error('未登陆雷达币',999);
+            }
+        }
         return $res_data;
 
     }
