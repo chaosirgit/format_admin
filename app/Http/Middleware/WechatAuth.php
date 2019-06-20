@@ -30,7 +30,8 @@ class WechatAuth
         try{
             if ($request->has('code')){
                 $code = $request->get('code');
-                var_dump($app->auth->session($code));
+                $data = $app->auth->session($code);
+                var_dump($app->user->get($data['openid']));
                 die;
             }
             return $next($request);
