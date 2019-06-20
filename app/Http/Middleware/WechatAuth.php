@@ -52,9 +52,10 @@ class WechatAuth
                         DB::commit();
                     }
                     Redis::connection('token')->set($user->id,md5($user->uid.time()));
+                    $user_id = $user->id;
                 }
             }
-            $request->attributes->add(['user_id'=>$user->id]);
+            $request->attributes->add(['user_id'=>$user_id]);
 
             return $next($request);
         }catch (\Exception $exception){
