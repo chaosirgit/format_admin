@@ -57,6 +57,7 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'OriginApi' => \App\Http\Middleware\OriginApi::class,
         'wechat.oauth' => \App\Http\Middleware\WechatAuth::class,
 
     ];
