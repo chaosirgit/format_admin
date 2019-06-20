@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['prefix' => 'api/v1', 'middleware' => ['wechat.oauth']],function(){
+    Route::get('login','UserController@login');
 });
