@@ -44,6 +44,7 @@ class WechatAuth
                         $user->open_id     = $data['openid'];
                         $user->nickname    = $request->get('nickname', '');
                         $user->avatar      = $request->get('avatar', '');
+                        $user->gender      = $request->get('gender', '');
                         $user->create_time = time();
                         $user->save();
                         DB::commit();
