@@ -54,8 +54,9 @@ class WechatAuth
                     Redis::connection('token')->set($user->id,md5($user->uid.time()));
                 }
             }
+            $request->attributes->add(['user_id'=>$user->id]);
 
-            return $next($request->offsetSet('user_id',$user->id));
+            return $next($request);
         }catch (\Exception $exception){
             DB::rollBack();
             return response()->json(['code'=>400,'data'=>$exception->getMessage().$exception->getLine().$exception->getFile()]);
