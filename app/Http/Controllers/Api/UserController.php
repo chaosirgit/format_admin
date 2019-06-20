@@ -11,7 +11,6 @@ class UserController extends Controller
 {
     public function login(){
         $user_id = Users::getUserId();
-        dd($user_id);
         $user = Users::find($user_id);
         if (empty($user->radar_username)){
             return $this->error('请注册雷达币账户',4001);
