@@ -31,7 +31,7 @@ class UserController extends Controller
                 $api = 'https://t.radarlab.org/api/user/login';
                 $post_data = array('username'=>$user->radar_username,'password'=>decrypt($user->radar_password));
                 $json_data = json_encode($post_data);
-                $res_data = $this->request('POST',$api,['json'=>$json_data]);
+                $res_data = $this->request('POST',$api,['json'=>$json_data],true);
                 if ($res_data['status'] == 'success'){
                     if (isset($res_data['result']['account_data']['emailNotActivated'])){
                         return $this->error(['radar_email'=>$user->radar_email,'msg'=>'需要激活','token'=>$token],4002);

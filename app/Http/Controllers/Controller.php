@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Cookie\CookieJar;
+use GuzzleHttp\Cookie\SetCookie;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -30,7 +32,7 @@ class Controller extends BaseController
         return $this->success($results);
     }
 
-    public function request($method,$api,$data = array()){
+    public function request($method,$api,$data = array(),$cookie = false){
         $client      = new Client();
         if ($method == 'POST'){
             $response    = $client->request($method, $api, ['form_params' => $data]);
@@ -38,7 +40,28 @@ class Controller extends BaseController
             $response    = $client->request($method, $api);
         }
         $res_string  = $response->getBody()->getContents();
+
+        $res_data    = json_decode($res_string, true);
+        if ($cookie){
+            $cookie_string = $response->getHeader('Set-Cookie');
+            $res_data['Set-Cookie'] = $cookie_string;
+        }
+        return $res_data;
+    }
+
+    public function cookieRequest($method,$api,$data = array(),$cookie_string){
+        $cookie_jar = new CookieJar();
+        $cookie_jar->setCookie(SetCookie::fromString($cookie_string));
+        $client = new Client(['cookies'=>$cookie_jar]);
+        if ($method == 'POST'){
+            $response    = $client->request($method, $api, ['form_params' => $data]);
+        }elseif($method == 'GET'){
+            $response    = $client->request($method, $api);
+        }
+        $res_string  = $response->getBody()->getContents();
+
         $res_data    = json_decode($res_string, true);
         return $res_data;
+
     }
 }
