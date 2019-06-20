@@ -51,11 +51,11 @@ class WechatAuth
                         $user->save();
                         DB::commit();
                     }
-                    Redis::connection('token')->set(md5($user->uid.time()),$user->id);
+                    Redis::connection('token')->set($user->id,md5($user->uid.time()));
                 }
             }
 
-            return $next($request);
+            return $next($request->offsetSet('user_id',$user->id));
         }catch (\Exception $exception){
             DB::rollBack();
             return response()->json(['code'=>400,'data'=>$exception->getMessage().$exception->getLine().$exception->getFile()]);

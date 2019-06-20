@@ -6,16 +6,18 @@ use App\Users;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redis;
 
 class UserController extends Controller
 {
-    public function login(){
-        $user_id = Users::getUserId();
+    public function login(Request $request){
+        $user_id = $request->get('user_id',null);
         $user = Users::find($user_id);
         if (empty($user->radar_username)){
             return $this->error('请注册雷达币账户',4001);
         }else{
-            return $this->success($user->id);
+            $token = Redis::connection('token')->get($user_id);
+            return $this->success($token);
         }
     }
 
