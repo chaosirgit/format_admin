@@ -20,4 +20,8 @@ class Users extends Model
     public static function getUserByOpenId($open_id){
         return self::where('open_id',$open_id)->first();
     }
+
+    public static function getUserId(){
+        return session('user_id',null);
+    }
 }

@@ -59,6 +59,7 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'OriginApi' => \App\Http\Middleware\OriginApi::class,
         'wechat.oauth' => \App\Http\Middleware\WechatAuth::class,
+        'api.auth' => \App\Http\Middleware\ApiAuth::class,
 
     ];
 }
