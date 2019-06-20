@@ -7,6 +7,7 @@ use Closure;
 use EasyWeChat\Factory;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Str;
 use Overtrue\LaravelWeChat\Events\WeChatUserAuthorized;
 use Webpatser\Uuid\Uuid;
@@ -27,9 +28,9 @@ class WechatAuth
 
         $app = Factory::miniProgram($config);
 
-
+        $user_id = Users::getUserId();
         try{
-            if (empty(session('user_id',null))){
+            if (empty($user_id)){
                 if ($request->has('code')){
                     $code = $request->get('code');
                     $data = $app->auth->session($code);
@@ -50,7 +51,7 @@ class WechatAuth
                         $user->save();
                         DB::commit();
                     }
-                    session(['user_id'=>$user->id]);
+                    Redis::set(md5($user->uid),$user->id);
                 }
             }
 

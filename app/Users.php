@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Redis;
+use Illuminate\Support\Facades\Request;
 
 /**
  * App\Users
@@ -22,6 +24,11 @@ class Users extends Model
     }
 
     public static function getUserId(){
-        return session('user_id',null);
+        $token = Request::header('Authorization',null);
+        if (empty($token)){
+            return 0;
+        }else{
+            return Redis::get($token);
+        }
     }
 }
