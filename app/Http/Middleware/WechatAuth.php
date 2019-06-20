@@ -9,6 +9,7 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Overtrue\LaravelWeChat\Events\WeChatUserAuthorized;
+use Webpatser\Uuid\Uuid;
 
 class WechatAuth
 {
@@ -40,7 +41,7 @@ class WechatAuth
 
                     if (empty($user)) {
                         $user              = new Users();
-                        $user->uid         = UUID::generate()->string;
+                        $user->uid         = Uuid::generate()->string;
                         $user->open_id     = $data['openid'];
                         $user->nickname    = $request->get('nickname', '');
                         $user->avatar      = $request->get('avatar', '');
