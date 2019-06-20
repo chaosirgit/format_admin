@@ -55,7 +55,7 @@ class UserController extends Controller
                 $user->radar_validated = $res_data['result']['validated'] ? 1 : 0;
                 $user->save();
                 DB::commit();
-                return $this->success('注册雷达币成功');
+                return $this->success(['message'=>'注册雷达币成功','radar_validated'=>$user->radar_validated,'radar_email'=>$user->radar_email]);
             }
         }catch (\Exception $exception){
             DB::rollBack();
