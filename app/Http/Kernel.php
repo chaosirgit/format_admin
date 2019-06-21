@@ -60,6 +60,7 @@ class Kernel extends HttpKernel
         'OriginApi' => \App\Http\Middleware\OriginApi::class,
         'wechat.oauth' => \App\Http\Middleware\WechatAuth::class,
         'api.auth' => \App\Http\Middleware\ApiAuth::class,
+        'AdminAuth' => \App\Http\Middleware\AdminAuth::class,
 
     ];
 }
