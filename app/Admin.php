@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Qiniu\Auth;
 
 class Admin extends Model
 {
