@@ -11,6 +11,7 @@ class AdminController extends Controller
 {
     public function login(){
         $project_name = env('PROJECT_NAME','模因科技');
+        var_dump(session(['aaa'=>1]));
         return view('admin.login')->with('project_name',$project_name);
     }
 
