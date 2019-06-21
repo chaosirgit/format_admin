@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Admin;
+use App\AdminRolePermission;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -25,5 +26,13 @@ class AdminController extends Controller
             session(['admin_id'=>$user->id,'is_super'=>$user->is_super,'role_id'=>$user->role_id]);
             return $this->success('登陆成功');
         }
+    }
+
+    public function index(){
+        $admin = Admin::findOrFail(session('admin_id'));
+
+        $admin_roles = AdminRolePermission::where('role_id',$admin->role_id)->get()->pluck('action')->toArray();
+
+        return view('admin.index')->with(['admin_roles'=>$admin_roles]);
     }
 }
