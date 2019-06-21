@@ -3,6 +3,8 @@
 namespace App\Http\Middleware;
 
 use App\Admin;
+use App\AdminAction;
+use App\AdminRolePermission;
 use Closure;
 
 class AdminAuth
