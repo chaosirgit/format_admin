@@ -88,12 +88,12 @@ class Controller extends BaseController
             return $this->error('图片文件不能超过10M');
         }
         $file_name = $file->getClientOriginalName();
-        var_dump($file_name);die;
+
         $path = $request->file('file')->store('public');
 
         $path = str_replace('public','storage',$path);
         $key = substr($path,8,40);
         $url = asset($path);
-        return $this->success(array('url'=>$url,'key'=>$key,'file_size'=>$size,));
+        return $this->success(array('url'=>$url,'key'=>$key,'file_size'=>$size,'file_name'=>$file_name,'ext'=>$ext));
     }
 }
