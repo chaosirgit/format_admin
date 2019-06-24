@@ -39,7 +39,7 @@
                     {field: 'id', title: 'ID', minWidth:80, align: 'center', sort: true, fixed: 'left'}
                     ,{field: 'mobile', title: '账号', minWidth:80, align: 'center', fixed: 'left'}
                     ,{field: 'nickname', title: '昵称', minWidth:80, align: 'center', fixed: 'left'}
-                    ,{field: 'balance', title: 'PB', minWidth:80, align: 'center', fixed: 'left'}
+                    ,{field: 'balance', title: '余额', minWidth:80, align: 'center', fixed: 'left'}
                     ,{field: 'integral', title: '积分', minWidth:80, align: 'center', fixed: 'left'}
                     ,{field: 'create_time', title: '注册时间', minWidth:80, align: 'center', fixed: 'left'}
 
