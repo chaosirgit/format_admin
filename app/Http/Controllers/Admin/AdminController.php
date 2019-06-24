@@ -11,8 +11,9 @@ use App\Http\Controllers\Controller;
 class AdminController extends Controller
 {
     public function login(){
+        $project_name = env('PROJECT_NAME','模因科技');
 
-        return view('admin.login');
+        return view('admin.login')->with('project_name',$project_name);
     }
 
     public function postLogin(Request $request){
