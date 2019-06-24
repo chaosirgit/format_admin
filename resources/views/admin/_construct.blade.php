@@ -70,7 +70,7 @@
         });
     }
 
-
+@if(!empty($qiniu_token))
     function uploadFiles(elem,callback) {
         layui.use(['upload'], function () {
             var $ = layui.jquery
@@ -100,7 +100,37 @@
             });
         });
     }
-
+    @else
+    function uploadFiles(elem,callback) {
+        layui.use(['upload'], function () {
+            var $ = layui.jquery
+                ,upload = layui.upload;
+            //多图片上传
+            upload.render({
+                elem: elem
+                , url: 'https://up-z2.qiniup.com/'
+                // , data:
+                ,accept:'file'
+                , multiple: true
+                , done: function (res) {
+                    $.ajax({
+                        url:'{{url('api/save_upload')}}'
+                        ,data:{'key':res.key,'ext':res.ext,'file_size':res.fsize,'file_name':res.fname,'user_id':'{{session('admin_id')}}','is_admin':1}
+                        ,dataType:'json'
+                        ,type:'post'
+                        ,success:function (result) {
+                            if (result.code != 200){
+                                layer.msg(result.data);
+                            } else {
+                                callback(result)
+                            }
+                        }
+                    });
+                }
+            });
+        });
+    }
+    @endif
     function layer_show(title,url,w,h) {
         var width = w || null;
         var height = h || null;
