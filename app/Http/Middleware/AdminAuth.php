@@ -19,7 +19,6 @@ class AdminAuth
     public function handle($request, Closure $next)
     {
         $admin_id = session('admin_id');
-        var_dump($admin_id);die;
         if (empty($admin_id)){
             return redirect('admin/login');
         }
