@@ -29,6 +29,8 @@ class AdminAuth
         $admin = Admin::findOrFail($admin_id);
         view()->share('admin',$admin);
 
+        $project_name = env('PROJECT_NAME','模因科技');
+        view()->share('project_name',$project_name);
         $upload_type = env('UPLOAD_TYPE','LOCAL');
         if ($upload_type == 'QINIU'){
             $qiniu_token = Admin::getUploadToken();

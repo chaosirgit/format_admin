@@ -5,7 +5,7 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>派好商城后台管理系统</title>
+    <title>{{$project_name}}后台管理系统</title>
     <link rel="stylesheet" href="./plugins/layui/css/layui.css" media="all">
     <link rel="stylesheet" href="./plugins/font-awesome/css/font-awesome.min.css" media="all">
     <link rel="stylesheet" href="./src/css/app.css" media="all">
@@ -14,7 +14,7 @@
 <body>
 <div class="layui-layout layui-layout-admin kit-layout-admin">
     <div class="layui-header">
-        <div class="layui-logo">派好商城后台管理系统</div>
+        <div class="layui-logo">{{$project_name}}后台管理系统</div>
         <div class="layui-logo kit-logo-mobile">CC</div>
         <ul class="layui-nav layui-layout-left kit-nav" kit-one-level>
             {{--<li class="layui-nav-item"><a href="javascript:;">控制台</a></li>--}}
