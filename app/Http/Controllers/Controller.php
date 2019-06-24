@@ -76,6 +76,8 @@ class Controller extends BaseController
     }
 
     public function localUpload(Request $request){
+        $file = $request->file('file');
+        var_dump($file->getSize());die;
         $path = $request->file('file')->store('public');
         var_dump($path);die;
         $path = str_replace('public','storage',$path);
