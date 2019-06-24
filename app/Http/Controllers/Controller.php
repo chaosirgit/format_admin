@@ -83,14 +83,15 @@ class Controller extends BaseController
         }
 
         $size = $file->getSize();
-        var_dump($size);die;
-        if ($size > 123){
 
+        if ($size > 10485760){
+            return $this->error('图片文件不能超过10M');
         }
         $path = $request->file('file')->store('public');
         var_dump($path);die;
         $path = str_replace('public','storage',$path);
+
         $url = asset($path);
-        return $this->success(array('url'=>$url));
+        return $this->success(array('url'=>$url,'key'=>));
     }
 }
