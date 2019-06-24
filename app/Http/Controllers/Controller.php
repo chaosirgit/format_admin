@@ -76,6 +76,12 @@ class Controller extends BaseController
     }
 
     public function localUpload(Request $request){
+        $file = $request->file('file');
+        $ext = $file->getExtension();
+        var_dump($ext);die;
+        if (!in_array('')){
+
+        }
         $path = $request->file('file')->store('public');
         $path = str_replace('public','storage',$path);
         $url = asset($path);
