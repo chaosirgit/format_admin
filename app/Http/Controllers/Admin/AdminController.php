@@ -36,4 +36,9 @@ class AdminController extends Controller
 
         return view('admin.index')->with(['admin_roles'=>$admin_roles]);
     }
+
+    public function main(){
+        $project_name = env('PROJECT_NAME','模因科技');
+        return view('admin.main')->with('project_name',$project_name);
+    }
 }
