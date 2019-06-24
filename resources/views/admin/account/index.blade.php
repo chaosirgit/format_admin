@@ -35,9 +35,9 @@
             </div>
         </div>
 
-        <div class="layui-input-block">
-            <a class="layui-btn layui-btn-normal" href="{{url('downExcel')}}?is_admin=1&action=log">导出Excel</a>
-        </div>
+        {{--<div class="layui-input-block">--}}
+            {{--<a class="layui-btn layui-btn-normal" href="{{url('downExcel')}}?is_admin=1&action=log">导出Excel</a>--}}
+        {{--</div>--}}
 
     </div>
     <div style="margin: 10px;">
