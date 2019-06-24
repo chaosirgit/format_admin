@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Admin;
 use App\Upload;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -45,5 +46,10 @@ class DefaultController extends Controller
             return $this->error($exception->getMessage());
         }
 
+    }
+
+
+    public function getQiniuToken(){
+        return $this->success(Admin::getUploadToken());
     }
 }

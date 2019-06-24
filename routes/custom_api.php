@@ -11,6 +11,16 @@
 |
 */
 
+//api-无需登陆
+Route::group(['middleware'=>['OriginApi']],function(){
+
+    Route::post('api/save_upload',['uses'=>'Api\DefaultController@saveUpload']);
+
+    Route::get('api/qiniu_token','Api\DefaultController@getQiniuToken');//获取七牛云上传token
+
+
+});
+
 Route::group(['prefix' => 'api/v1', 'middleware' => ['wechat.oauth']],function(){
     Route::post('login','Api\UserController@login');
 });
