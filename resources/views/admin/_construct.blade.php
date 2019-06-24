@@ -108,7 +108,7 @@
             //多图片上传
             upload.render({
                 elem: elem
-                , url: 'https://up-z2.qiniup.com/'
+                , url: '{{url('local/upload')}}'
                 // , data:
                 ,accept:'file'
                 , multiple: true

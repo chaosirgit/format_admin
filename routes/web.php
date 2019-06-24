@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::post('local/upload','Controller@localUpload');//本地上传
 Route::get('admin/login','Admin\AdminController@login');//后台登录页
 Route::post('admin/login','Admin\AdminController@postLogin');//后台登录接口
 
