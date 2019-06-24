@@ -2,65 +2,18 @@
 @section('body')
 <form class="layui-form" action="">
     <div class="layui-form-item">
-        <label class="layui-form-label">入驻商家费用</label>
+        <label class="layui-form-label">短信宝账号</label>
         <div class="layui-input-inline">
-            <input type="number" name="seller_add_fee" required  lay-verify="required" placeholder="" autocomplete="off" class="layui-input" value="{{\App\Setting::getValueByKey('seller_add_fee',500)}}">
+            <input type="text" name="smsBao_username" required  lay-verify="required" placeholder="" autocomplete="off" class="layui-input" value="{{\App\Setting::getValueByKey('smsBao_username','chaosir')}}">
         </div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label">上传产品费用</label>
+        <label class="layui-form-label">短信包密码</label>
         <div class="layui-input-inline">
-            <input type="number" name="product_fee" required  lay-verify="required" placeholder="" autocomplete="off" class="layui-input" value="{{\App\Setting::getValueByKey('product_fee',5)}}">
+            <input type="text" name="password" required  lay-verify="required" placeholder="" autocomplete="off" class="layui-input" value="{{\App\Setting::getValueByKey('password','haha123')}}">
         </div>
     </div>
-    <div class="layui-form-item">
-        <label class="layui-form-label">上传广告图片费用</label>
-        <div class="layui-input-inline">
-            <input type="number" name="img_fee" required  lay-verify="required" placeholder="" autocomplete="off" class="layui-input" value="{{\App\Setting::getValueByKey('img_fee',10)}}">
-        </div>
-    </div>
-    <div class="layui-form-item">
-        <label class="layui-form-label">上传广告视频费用</label>
-        <div class="layui-input-inline">
-            <input type="number" name="video_fee" required  lay-verify="required" placeholder="" autocomplete="off" class="layui-input" value="{{\App\Setting::getValueByKey('video_fee',20)}}">
-        </div>
-    </div>
-    <div class="layui-form-item">
-        <label class="layui-form-label">最低打赏费</label>
-        <div class="layui-input-inline">
-            <input type="number" name="min_ad_income" required  lay-verify="required" placeholder="" autocomplete="off" class="layui-input" value="{{\App\Setting::getValueByKey('min_ad_income',1)}}">
-        </div>
-    </div>
-    <div class="layui-form-item">
-        <label class="layui-form-label">续费打赏费比例(%)</label>
-        <div class="layui-input-inline">
-            <input type="number" name="continue_income_ratio" required  lay-verify="required" placeholder="" autocomplete="off" class="layui-input" value="{{\App\Setting::getValueByKey('continue_income_ratio',20)}}">
-        </div>
-    </div>
-    <div class="layui-form-item">
-        <label class="layui-form-label">赠送用户积分比例(%)</label>
-        <div class="layui-input-inline">
-            <input type="number" name="gift_user" required  lay-verify="required" placeholder="" autocomplete="off" class="layui-input" value="{{\App\Setting::getValueByKey('gift_user',80)}}">
-        </div>
-    </div>
-    <div class="layui-form-item">
-        <label class="layui-form-label">平台抽取PB比例(%)</label>
-        <div class="layui-input-inline">
-            <input type="number" name="sub_PB_ratio" required  lay-verify="required" placeholder="" autocomplete="off" class="layui-input" value="{{\App\Setting::getValueByKey('sub_PB_ratio',20)}}">
-        </div>
-    </div>
-    <div class="layui-form-item">
-        <label class="layui-form-label">推荐人获得积分比例(%)</label>
-        <div class="layui-input-inline">
-            <input type="number" name="gift_parent" required  lay-verify="required" placeholder="" autocomplete="off" class="layui-input" value="{{\App\Setting::getValueByKey('gift_parent',10)}}">
-        </div>
-    </div>
-    <div class="layui-form-item">
-        <label class="layui-form-label">平台抽取积分订单比例(%)</label>
-        <div class="layui-input-inline">
-            <input type="number" name="sub_Integral_ratio" required  lay-verify="required" placeholder="" autocomplete="off" class="layui-input" value="{{\App\Setting::getValueByKey('sub_Integral_ratio',20)}}">
-        </div>
-    </div>
+
     <div class="layui-form-item">
         <label class="layui-form-label">首页banner</label>
         <div class="layui-input-block">

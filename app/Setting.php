@@ -38,8 +38,8 @@ class Setting extends Model
     public static function sendSmsForSmsBao($mobile,$content)
     {
         try{
-            $username = self::getValueByKey('smsBao_username', 'paihaosc');
-            $password = self::getValueByKey('password', 'paihaoSC2019');
+            $username = self::getValueByKey('smsBao_username', 'chaosir');
+            $password = self::getValueByKey('password', 'haha123');
             if (empty($mobile)){
                 throw new \Exception('请填写手机号');
             }
