@@ -92,8 +92,8 @@ class Controller extends BaseController
         $path = $request->file('file')->store('public');
 
         $path = str_replace('public','storage',$path);
-        $key = substr($path,8,40);
+//        $key = substr($path,8);
         $url = asset($path);
-        return $this->success(array('url'=>$url,'key'=>$key,'file_size'=>$size,'file_name'=>$file_name,'ext'=>$ext));
+        return $this->success(array('url'=>$url,'key'=>$url,'file_size'=>$size,'file_name'=>$file_name,'ext'=>$ext));
     }
 }
