@@ -23,10 +23,10 @@ class AccountLog extends Model
     ];
 
     public function getMobileAttribute(){
-        return $this->hasOne('App\User','id','user_id')->value('mobile');
+        return $this->hasOne('App\Users','id','user_id')->value('mobile');
     }
     public function getNicknameAttribute(){
-        return $this->hasOne('App\User','id','user_id')->value('nickname');
+        return $this->hasOne('App\Users','id','user_id')->value('nickname');
     }
 
     public function getTypeNameAttribute(){
