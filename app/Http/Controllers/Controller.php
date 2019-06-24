@@ -76,6 +76,7 @@ class Controller extends BaseController
     }
 
     public function localUpload(Request $request){
-
+        $file = $request->file('file');
+        var_dump($file);
     }
 }
