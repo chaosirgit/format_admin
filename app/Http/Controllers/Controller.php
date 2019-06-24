@@ -77,7 +77,16 @@ class Controller extends BaseController
 
     public function localUpload(Request $request){
         $file = $request->file('file');
-        var_dump($file->extension());die;
+        $ext = $file->extension();
+        if (!in_array($ext,['png','jpg','jpge','webp'])){
+            return $this->error('文件类型错误');
+        }
+
+        $size = $file->getSize();
+        var_dump($size);die;
+        if ($size > ){
+
+        }
         $path = $request->file('file')->store('public');
         var_dump($path);die;
         $path = str_replace('public','storage',$path);
