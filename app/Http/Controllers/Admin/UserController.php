@@ -110,7 +110,7 @@ class UserController extends Controller
             }
             if ($type == 1){
                 $column = 'balance';
-                $info = '后台调节PB:'.$info;
+                $info = '后台调节余额:'.$info;
                 $log_type = AccountLog::ADMIN_CONF_BALANCE;
             }elseif($type == 3){
                 $column = 'integral';
