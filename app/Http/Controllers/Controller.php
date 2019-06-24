@@ -92,6 +92,6 @@ class Controller extends BaseController
         $path = str_replace('public','storage',$path);
 
         $url = asset($path);
-        return $this->success(array('url'=>$url,'key'=>));
+        return $this->success(array('url'=>$url,'key'=>$path));
     }
 }
