@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Admin;
 use App\AdminRolePermission;
+use App\Setting;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -40,5 +41,32 @@ class AdminController extends Controller
     public function main(){
         $project_name = env('PROJECT_NAME','模因科技');
         return view('admin.main')->with('project_name',$project_name);
+    }
+
+
+    public function logout(){
+        session()->forget('admin_id');
+        return redirect('admin/login');
+    }
+
+    public function sendMsg(){
+        return view('admin.sendMsg');
+    }
+
+
+    public function postSendMsg(Request $request){
+        $mobile = $request->get('mobile',null);
+        $content = $request->get('content',null);
+        if (empty($mobile) || empty($content)){
+            return $this->error('参数错误');
+        }
+        try{
+            Setting::sendSmsForSmsBao($mobile,$content);
+            return $this->success('发送成功');
+        }catch (\Exception $exception){
+            return $this->error($exception->getMessage());
+        }
+
+
     }
 }
