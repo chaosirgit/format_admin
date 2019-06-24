@@ -115,7 +115,7 @@
                 , done: function (res) {
                     $.ajax({
                         url:'{{url('api/save_upload')}}'
-                        ,data:{'key':res.key,'ext':res.ext,'file_size':res.fsize,'file_name':res.fname,'user_id':'{{session('admin_id')}}','is_admin':1}
+                        ,data:{'key':res.data.key,'ext':res.data.ext,'file_size':res.data.fsize,'file_name':res.data.fname,'user_id':'{{session('admin_id')}}','is_admin':1}
                         ,dataType:'json'
                         ,type:'post'
                         ,success:function (result) {
