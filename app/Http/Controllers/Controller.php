@@ -84,7 +84,7 @@ class Controller extends BaseController
 
         $size = $file->getSize();
         var_dump($size);die;
-        if ($size > ){
+        if ($size > 123){
 
         }
         $path = $request->file('file')->store('public');
